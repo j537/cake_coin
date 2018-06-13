@@ -44,14 +44,14 @@ namespace Crypto {
     data = mmap(nullptr, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
 #endif
     if (data == MAP_FAILED) {
-      throw bad_alloc();
+      //throw bad_alloc();
     }
     mlock(data, MAP_SIZE);
   }
 
   cn_context::~cn_context() {
     if (munmap(data, MAP_SIZE) != 0) {
-      throw bad_alloc();
+      //throw bad_alloc();
     }
   }
 
